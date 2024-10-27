@@ -44,6 +44,10 @@ impl<T> SVec<T> {
     pub fn shape(&self) -> (usize, usize, Option<usize>) {
         self.shape.get_shape()
     }
+    pub fn get_len(&self) -> usize {
+        let shape = self.shape.get_shape();
+        shape.0 * shape.1 * shape.2.unwrap_or(1)
+    }
     pub fn get_data(&self) -> &[T] {
         self.data.as_slice()
     }
